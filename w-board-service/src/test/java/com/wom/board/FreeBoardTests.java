@@ -5,6 +5,9 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import com.wom.board.entity.FreeBoard;
 import com.wom.board.repository.BoardRepository;
@@ -26,5 +29,11 @@ public class FreeBoardTests {
 					.build();
 			System.out.println(boardRepository.save(freeboard));
 		});
+	}
+	
+	@Test
+	public void selectTest() {
+		Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
+		
 	}
 }
