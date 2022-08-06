@@ -9,15 +9,20 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import com.wom.board.dto.FreeBoardDTO;
+import com.wom.board.dto.PageRequestDTO;
+import com.wom.board.dto.PageResultDTO;
 import com.wom.board.entity.FreeBoard;
-import com.wom.board.repository.BoardRepository;
+import com.wom.board.repository.FreeBoardRepository;
+import com.wom.board.service.FreeBoardService;
 
 @SpringBootTest
 public class FreeBoardTests {
 
 	@Autowired
-	private BoardRepository boardRepository;
-	
+	private FreeBoardRepository boardRepository;
+	@Autowired
+    private FreeBoardService service;
 	@Test
 	public void insertDummies() {
 		IntStream.rangeClosed(1, 20).forEach(i->{
@@ -33,7 +38,14 @@ public class FreeBoardTests {
 	
 	@Test
 	public void selectTest() {
-		Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
+		PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+				.page(1)
+				.size(10)
+				.build();
+		PageResultDTO<FreeBoardDTO, FreeBoard> resultDTO = service.getList(pageRequestDTO);
 		
+		for(FreeBoardDTO dto : resultDTO.getDtoList()) {
+			System.out.println(dto);
+		}
 	}
 }
