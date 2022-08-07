@@ -11,14 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class FreeBoardDTO {
+public class ReplyDTO {
 
-	private Long bno;
-	private String title;
+	private Long rno;
 	private String userId;
 	private String nickname;
-	private String content;
+	private String rcontent;
 	private LocalDateTime regDate;
 	private LocalDateTime modDate;
-	private int replyCnt;
+	private Long bno;
 }
