@@ -5,7 +5,7 @@ FROM openjdk:17-slim
 LABEL maintainer="rachel ryu <dev.rachelxx@gmail.com>"
 
 # The application's jar file
-ARG JAR_FILE
+ARG JAR_FILE=target/*.jar
 
 # Add the application's jar to the container
 COPY ${JAR_FILE} app.jar
