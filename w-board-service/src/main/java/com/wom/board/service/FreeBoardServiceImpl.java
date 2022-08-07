@@ -1,5 +1,10 @@
 package com.wom.board.service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 import org.springframework.data.domain.Page;
@@ -30,6 +35,21 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 	}
 
 	@Override
+	public List<FreeBoard> getAllList() {
+		//Pageable pageable = requestDTO.getPageable(Sort.by("bno").descending());
+		
+		List<FreeBoard> result = repository.findAll();
+
+		Function<FreeBoard, FreeBoardDTO> fn = (entity -> entityToDto(entity));
+		
+		/*List<FreeBoard> list = new ArrayList();
+		for(FreeBoard dto : result) {
+		
+		}*/
+		return result;
+	}
+
+	/*@Override
 	public PageResultDTO<FreeBoardDTO, FreeBoard> getList(PageRequestDTO requestDTO) {
 		Pageable pageable = requestDTO.getPageable(Sort.by("bno").descending());
 		
@@ -39,6 +59,6 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 		
 		
 		return new PageResultDTO<>(result, fn);
-	}
+	}*/
 
 }

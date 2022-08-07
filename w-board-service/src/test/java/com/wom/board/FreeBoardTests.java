@@ -36,16 +36,4 @@ public class FreeBoardTests {
 		});
 	}
 	
-	@Test
-	public void selectTest() {
-		PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
-				.page(1)
-				.size(10)
-				.build();
-		PageResultDTO<FreeBoardDTO, FreeBoard> resultDTO = service.getList(pageRequestDTO);
-		
-		for(FreeBoardDTO dto : resultDTO.getDtoList()) {
-			System.out.println(dto);
-		}
-	}
 }
