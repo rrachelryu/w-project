@@ -3,6 +3,9 @@ package com.wom.board.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.wom.board.config.ServiceConfig;
 import com.wom.board.dto.FreeBoardDTO;
 import com.wom.board.dto.PageRequestDTO;
 import com.wom.board.dto.PageResultDTO;
@@ -10,6 +13,7 @@ import com.wom.board.entity.FreeBoard;
 
 
 public interface FreeBoardService {
+	@Autowired
 	/* 자유게시판 게시글 등록 */
 	Long register(FreeBoardDTO dto);
 	
