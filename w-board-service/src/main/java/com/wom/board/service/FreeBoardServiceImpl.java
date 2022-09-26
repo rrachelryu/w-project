@@ -30,8 +30,10 @@ public class FreeBoardServiceImpl implements FreeBoardService{
 	
 	@Override
 	public Long register(FreeBoardDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("______"+dto);
+		FreeBoard frboard = dtoToEntity(dto);
+		repository.save(frboard);
+		return frboard.getBno();
 	}
 
 	@Override

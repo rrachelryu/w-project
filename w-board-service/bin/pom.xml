@@ -14,7 +14,7 @@
 	<name>w-board-service</name>
 	<description>wom project for Spring Boot</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
 		<docker.image.prefix>wom</docker.image.prefix>
 	</properties>
@@ -88,9 +88,6 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-					<layers>
-						<enabled>true</enabled>
-					</layers>
 				</configuration>
 			</plugin>
 			<plugin>

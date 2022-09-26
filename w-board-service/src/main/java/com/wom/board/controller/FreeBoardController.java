@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,4 +41,13 @@ public class FreeBoardController {
 		return frService.getAllList();
 	}
 	
+	/*
+	 *  자유게시판 등록 API
+	 */
+	@PostMapping("/register-free")
+	public String registerFree(FreeBoardDTO dto) {
+		Long bno = frService.register(dto);
+		
+		return "";
+	}
 }
